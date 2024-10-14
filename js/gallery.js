@@ -1,6 +1,7 @@
+// Image and caption arrays
 const images = [
-    'images/photo1.jpg', 'images/photo2.jpg', 'images/photo3.jpg',
-    'images/photo4.jpg', 'images/photo5.jpg', 'images/photo6.jpg',
+    'images/photo1.jpg', 'images/photo2.jpg', 'images/photo3.jpg', 
+    'images/photo4.jpg', 'images/photo5.jpg', 'images/photo6.jpg', 
     'images/photo7.jpg', 'images/photo8.jpg', 'images/photo9.jpg', 'images/photo10.jpg'
 ];
 const captions = [
@@ -8,14 +9,16 @@ const captions = [
     "Photo 4: Local Park", "Photo 5: Library", "Photo 6: Town Hall",
     "Photo 7: Farmers Market", "Photo 8: Art Show", "Photo 9: Community Center", 
     "Photo 10: Local Celebration"
-]; 
-
+];
 const descriptions = [
-    "Description for Photo 1", "Description for Photo 2", "Description for Photo 3", 
-    "Description for Photo 4", "Description for Photo 5", "Description for Photo 6", 
-    "Description for Photo 7", "Description for Photo 8", "Description for Photo 9", "Description for Photo 10"
+    "Description for Photo 1: Community Event details", "Description for Photo 2: Volunteers effort details", 
+    "Description for Photo 3: Cleanup Effort details", "Description for Photo 4: Local Park details", 
+    "Description for Photo 5: Library activities", "Description for Photo 6: Town Hall meeting details", 
+    "Description for Photo 7: Farmers Market offerings", "Description for Photo 8: Art Show details", 
+    "Description for Photo 9: Community Center activities", "Description for Photo 10: Local Celebration event details"
 ];
 
+// Populate gallery with images and captions
 const gallery = document.getElementById('photo-gallery');
 
 images.forEach((image, index) => {
@@ -23,12 +26,14 @@ images.forEach((image, index) => {
     li.innerHTML = `
         <img src="${image}" alt="Photo ${index + 1}" class="photo">
         <p>${captions[index]}</p>
+        <p class="description" onclick="showInfoBox(${index})">Click here for more info</p>
     `;
     gallery.appendChild(li);
 });
 
 // Function to show the information box
 function showInfoBox(index) {
+    console.log("Showing info box for image: ", index); // Debug log
     const infoBox = document.getElementById('info-box');
     infoBox.innerHTML = `
         <h2>${captions[index]}</h2>
