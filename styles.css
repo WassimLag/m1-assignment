@@ -89,3 +89,30 @@ footer {
     width: 100%;
 }
 
+
+/* Gallery Styles */
+#gallery ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#gallery ul li {
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#gallery img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+#gallery p {
+    margin-top: 10px;
+    font-size: 14px;
+}
