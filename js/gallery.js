@@ -24,7 +24,7 @@ const gallery = document.getElementById('photo-gallery');
 images.forEach((image, index) => {
     const li = document.createElement('li');
     li.innerHTML = `
-        <img src="${image}" alt="Photo ${index + 1}" class="photo">
+        <img src="${image}" alt="Photo ${index + 1}" class="photo" onclick="openLightbox('${image}')">
         <p>${captions[index]}</p>
         <p class="description" onclick="showInfoBox(${index})">Click here for more info</p>
     `;
@@ -48,12 +48,16 @@ function closeInfoBox() {
     document.getElementById('info-box').style.visibility = 'hidden';
 }
 
-// jQuery Lightbox functions
+// Move openLightbox function outside $(document).ready() to make it globally accessible
 function openLightbox(imageSrc) {
     $('#lightbox').show();
     $('#lightbox-img').attr('src', imageSrc);
 }
 
-$('.close').click(function() {
-    $('#lightbox').hide();
+// jQuery code inside document ready
+$(document).ready(function() {
+    // jQuery handler to close the lightbox
+    $('.close').click(function() {
+        $('#lightbox').hide();
+    });
 });
