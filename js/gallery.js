@@ -47,3 +47,13 @@ function showInfoBox(index) {
 function closeInfoBox() {
     document.getElementById('info-box').style.visibility = 'hidden';
 }
+
+// jQuery Lightbox functions
+function openLightbox(imageSrc) {
+    $('#lightbox').show();
+    $('#lightbox-img').attr('src', imageSrc);
+}
+
+$('.close').click(function() {
+    $('#lightbox').hide();
+});
